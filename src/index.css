@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #faf5ee;
+    background-image: radial-gradient(#eadbc8 0.75px, transparent 0.75px);
+    background-size: 24px 24px;
+    color: #432f22;
+  }
+}
+
+/* Custom rustic subtle styles */
+.texture-paper {
+  background-color: #fcf9f2;
+  background-image: radial-gradient(#eedbc6 0.8px, #fcf9f2 0.8px);
+  background-size: 20px 20px;
+}
+
+.stitched-border {
+  border: 2px dashed #d5a37f;
+}
+
+/* Smooth transitions */
+button, a {
+  transition: all 0.2s ease-in-out;
+}

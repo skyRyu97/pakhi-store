@@ -7,7 +7,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
-import { PAKHI_PRODUCTS } from './data/products';
+import { PANKHI_PRODUCTS } from './data/products';
 import { CartProvider, useCart } from './context/CartContext';
 
 function StoreApp() {
@@ -28,7 +28,7 @@ function StoreApp() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const currentProduct = PAKHI_PRODUCTS.find(p => p.id === selectedProductId) || PAKHI_PRODUCTS[0];
+  const currentProduct = PANKHI_PRODUCTS.find(p => p.id === selectedProductId) || PANKHI_PRODUCTS[0];
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-terracotta-200 selection:text-terracotta-900">
@@ -50,7 +50,7 @@ function StoreApp() {
       <main className="flex-1">
         {activePage === 'home' && (
           <HomePage
-            products={PAKHI_PRODUCTS}
+            products={PANKHI_PRODUCTS}
             onNavigate={setActivePage}
             onSelectProduct={handleSelectProduct}
           />
@@ -58,7 +58,7 @@ function StoreApp() {
 
         {activePage === 'catalog' && (
           <CatalogPage
-            products={PAKHI_PRODUCTS}
+            products={PANKHI_PRODUCTS}
             onSelectProduct={handleSelectProduct}
           />
         )}

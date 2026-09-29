@@ -5,7 +5,7 @@ export default function Footer({ onNavigate }) {
   return (
     <footer className="bg-warmbrown-900 text-cream-200 pt-14 pb-10 border-t-4 border-terracotta-500 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Mom's personal guarantee banner */}
+        {/* Nani's personal guarantee banner */}
         <div className="bg-warmbrown-800/80 border border-warmbrown-700 rounded-2xl p-6 sm:p-8 mb-12 shadow-inner">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
             <div className="flex items-center gap-4 justify-center md:justify-start">
@@ -14,7 +14,7 @@ export default function Footer({ onNavigate }) {
               </div>
               <div>
                 <h4 className="font-serif font-semibold text-cream-100">100% Handcrafted</h4>
-                <p className="text-xs text-warmbrown-300">Stitched single-handedly by our mother at home.</p>
+                <p className="text-xs text-warmbrown-300">Stitched single-handedly by our Nani at home.</p>
               </div>
             </div>
 
@@ -45,13 +45,13 @@ export default function Footer({ onNavigate }) {
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🪭</span>
-              <span className="font-serif text-2xl font-bold text-cream-50">Maa Di Pakhi</span>
+              <span className="font-serif text-2xl font-bold text-cream-50">Nani Di Pankhi</span>
             </div>
             <p className="text-sm text-warmbrown-300 max-w-sm leading-relaxed">
-              Preserving the fading Punjabi tradition of hand-embroidered pakhis. Made slowly, lovingly, and sustainably in small batches from our home in Jalandhar to your home anywhere in India.
+              Preserving the fading Punjabi tradition of hand-embroidered pankhis. Made slowly, lovingly, and sustainably in small batches from our home in Jalandhar to your home anywhere in India.
             </p>
             <div className="pt-2 font-hand text-terracotta-400 text-lg">
-              "Pyaar te reet naal banayi har ik pakhi"
+              "Pyaar te reet naal banayi har ik pankhi"
             </div>
           </div>
 
@@ -66,7 +66,7 @@ export default function Footer({ onNavigate }) {
               </li>
               <li>
                 <button onClick={() => onNavigate('catalog')} className="hover:text-terracotta-400 transition-colors">
-                  All Pakhis Collection
+                  All Pankhis Collection
                 </button>
               </li>
               <li>
@@ -88,16 +88,16 @@ export default function Footer({ onNavigate }) {
             </p>
             <div className="text-xs text-terracotta-300 bg-warmbrown-800 p-3 rounded-xl border border-warmbrown-700">
               <p className="font-medium text-cream-200">Email us directly:</p>
-              <p className="font-mono text-terracotta-300 mt-0.5">hello@maadipakhi.store</p>
+              <p className="font-mono text-terracotta-300 mt-0.5">hello@nanidipankhi.store</p>
               <p className="text-[11px] text-warmbrown-400 mt-2">Punjab, India</p>
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-warmbrown-800 text-center text-xs text-warmbrown-400 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Maa Di Pakhi. Built with care for family craft.</p>
+          <p>© {new Date().getFullYear()} Nani Di Pankhi. Built with care for family craft.</p>
           <div className="flex items-center gap-1 font-hand text-sm text-cream-300">
-            <span>Made with love by a proud child for Mum's craft</span>
+            <span>Made with love by a proud grandchild for Nani's craft</span>
             <Heart className="w-4 h-4 text-terracotta-400 inline fill-terracotta-400" />
           </div>
         </div>

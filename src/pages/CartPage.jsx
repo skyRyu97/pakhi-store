@@ -14,14 +14,14 @@ export default function CartPage({ onNavigate, onSelectProduct }) {
         <div>
           <h2 className="font-serif text-3xl font-bold text-warmbrown-900">Your basket is resting empty</h2>
           <p className="text-sm text-warmbrown-600 mt-2 max-w-sm mx-auto">
-            Mom has stitched several beautiful new pakhis with silk floss waiting for a cozy corner in your home.
+            Nani has stitched several beautiful new pankhis with silk floss waiting for a cozy corner in your home.
           </p>
         </div>
         <button
           onClick={() => onNavigate('catalog')}
           className="px-8 py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-cream-50 font-medium rounded-xl text-sm shadow-warm transition-all"
         >
-          Explore Mom's Pakhis
+          Explore Nani's Pankhis
         </button>
       </div>
     );
@@ -36,7 +36,7 @@ export default function CartPage({ onNavigate, onSelectProduct }) {
             Your Craft Basket
           </h1>
           <p className="text-xs sm:text-sm text-warmbrown-600 mt-1">
-            {totalItems} hand-stitched {totalItems === 1 ? 'pakhi' : 'pakhis'} prepared with care
+            {totalItems} hand-stitched {totalItems === 1 ? 'pankhi' : 'pankhis'} prepared with care
           </p>
         </div>
         <button
@@ -44,7 +44,7 @@ export default function CartPage({ onNavigate, onSelectProduct }) {
           className="text-xs sm:text-sm font-medium text-terracotta-700 hover:text-terracotta-800 flex items-center gap-1.5"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Add more pakhis</span>
+          <span>Add more pankhis</span>
         </button>
       </div>
 
@@ -125,7 +125,7 @@ export default function CartPage({ onNavigate, onSelectProduct }) {
           <div className="p-4 bg-terracotta-50/70 border border-terracotta-200/80 rounded-2xl flex items-center gap-3 text-xs text-warmbrown-700">
             <span className="text-xl">🎁</span>
             <p>
-              <strong>Hand-wrapped gift packaging:</strong> Every pakhi arrives wrapped in breathable soft muslin with a handwritten thank-you blessing from Mum.
+              <strong>Hand-wrapped gift packaging:</strong> Every pankhi arrives wrapped in breathable soft muslin with a handwritten thank-you blessing from Nani.
             </p>
           </div>
         </div>

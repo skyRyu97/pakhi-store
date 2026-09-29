@@ -1,14 +1,14 @@
-export const PAKHI_PRODUCTS = [
+export const PANKHI_PRODUCTS = [
   {
     id: "phulkari-gulab",
-    name: "Phulkari Gulab Pakhi",
+    name: "Phulkari Gulab Pankhi",
     subtitle: "Rose Red & Mustard Silk Floss",
     price: 1250,
     originalPrice: 1500,
     rating: 4.9,
     reviewsCount: 38,
     tag: "Bestseller",
-    description: "Hand-embroidered with traditional silk floss (pat) threads in geometric geometric floral motifs. Crafted with love by Mom over 14 painstaking hours, finished with woolen fringe tassels and a hand-turned Sheesham wood handle.",
+    description: "Hand-embroidered with traditional silk floss (pat) threads in geometric geometric floral motifs. Crafted with love by Nani over 14 painstaking hours, finished with woolen fringe tassels and a hand-turned Sheesham wood handle.",
     details: [
       "Authentic Punjabi Bagh-style floral geometry",
       "Soft pure khaddar cotton base with silken embroidery",
@@ -16,7 +16,7 @@ export const PAKHI_PRODUCTS = [
       "Border adorned with hand-knotted golden mustard ghungroo fringe",
       "Diameter: approx. 11.5 inches"
     ],
-    image: "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80",
+    image: "/Products pics/homepic.png",
     additionalImages: [
       "https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
@@ -26,13 +26,13 @@ export const PAKHI_PRODUCTS = [
   },
   {
     id: "kesari-dhar",
-    name: "Kesari Dhoop Pakhi",
+    name: "Kesari Dhoop Pankhi",
     subtitle: "Warm Mustard & Terracotta Heritage",
     price: 980,
     originalPrice: 1200,
     rating: 5.0,
     reviewsCount: 24,
-    tag: "Mom's Favorite",
+    tag: "Nani's Favorite",
     description: "Inspired by golden mustard fields (Sarson) in harvest time. Embroidered in earthy ochre, amber, and raw terracotta. Stitched tightly on coarse organic handloom cotton to ensure a sturdy, cooling breeze on balmy afternoons.",
     details: [
       "Natural organic handspun cotton base",
@@ -50,14 +50,14 @@ export const PAKHI_PRODUCTS = [
   },
   {
     id: "mitti-sunehri",
-    name: "Mitti Te Sunehra Pakhi",
+    name: "Mitti Te Sunehra Pankhi",
     subtitle: "Clay Brown, Golden Tilla & Raw Thread",
     price: 1450,
     originalPrice: 1700,
     rating: 4.8,
     reviewsCount: 19,
     tag: "Festive Edition",
-    description: "A ceremonial pakhi created for weddings, Shagun, and heirloom gifting. Features intricate gold zari tilla work interwoven with deep terracotta earthen threads and delicate mirror-work (sheesha) that catches the evening light.",
+    description: "A ceremonial pankhi created for weddings, Shagun, and heirloom gifting. Features intricate gold zari tilla work interwoven with deep terracotta earthen threads and delicate mirror-work (sheesha) that catches the evening light.",
     details: [
       "Mirror-work (sheesha) accents hand-set into embroidery",
       "Gold zari tilla thread highlights",
@@ -74,7 +74,7 @@ export const PAKHI_PRODUCTS = [
   },
   {
     id: "neela-ambara",
-    name: "Saanjh Peengh Pakhi",
+    name: "Saanjh Peengh Pankhi",
     subtitle: "Dusk Clay & Olive Forest Greens",
     price: 890,
     originalPrice: 1100,
@@ -95,7 +95,7 @@ export const PAKHI_PRODUCTS = [
   },
   {
     id: "gulaab-kali",
-    name: "Gulaab Kali Pakhi",
+    name: "Gulaab Kali Pankhi",
     subtitle: "Soft Blush & Amber Folk Stitch",
     price: 1100,
     originalPrice: 1350,
@@ -116,7 +116,7 @@ export const PAKHI_PRODUCTS = [
   },
   {
     id: "virasat-charkha",
-    name: "Virasat Charkha Pakhi",
+    name: "Virasat Charkha Pankhi",
     subtitle: "Raw Khadi & Deep Rust Geometrics",
     price: 1320,
     originalPrice: 1600,
@@ -136,3 +136,5 @@ export const PAKHI_PRODUCTS = [
     inStock: 2
   }
 ];
+
+export const PAKHI_PRODUCTS = PANKHI_PRODUCTS;

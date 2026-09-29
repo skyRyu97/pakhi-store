@@ -30,7 +30,7 @@ export default function OrderConfirmationPage({ order, onNavigate }) {
             Order Confirmed & Received
           </h1>
           <p className="text-sm text-warmbrown-700 mt-2 max-w-md mx-auto leading-relaxed">
-            Mum has received your order request and will personally prepare your pakhi for dispatch from our home in Punjab.
+            Nani has received your order request and will personally prepare your pankhi for dispatch from our home in Punjab.
           </p>
         </div>
 
@@ -39,16 +39,16 @@ export default function OrderConfirmationPage({ order, onNavigate }) {
         </div>
       </div>
 
-      {/* Mom's personal handwritten card mockup */}
+      {/* Nani's personal handwritten card mockup */}
       <div className="bg-[#fffdf8] p-6 sm:p-8 rounded-2xl border border-warmbrown-300/80 shadow-warm-sm relative">
         <div className="absolute top-3 right-3 text-terracotta-400">
           <Heart className="w-5 h-5 fill-terracotta-200" />
         </div>
         <h3 className="font-serif text-base font-bold text-warmbrown-900 mb-2">
-          A Message from Mata Ji (Mom):
+          A Message from Nani Ji:
         </h3>
         <p className="font-hand text-lg sm:text-xl text-terracotta-800 leading-relaxed italic">
-          "Puttar, thank you for supporting my lifelong craft. May this pakhi bring cooling peace, good health, and sweet blessings into your home."
+          "Puttar, thank you for supporting my lifelong craft. May this pankhi bring cooling peace, good health, and sweet blessings into your home."
         </p>
         {order.customer?.giftNote && (
           <div className="mt-4 pt-4 border-t border-warmbrown-200">
@@ -126,7 +126,7 @@ export default function OrderConfirmationPage({ order, onNavigate }) {
           onClick={() => onNavigate('catalog')}
           className="w-full sm:w-auto px-8 py-3.5 bg-terracotta-600 hover:bg-terracotta-700 text-cream-50 font-medium rounded-xl text-xs shadow-warm flex items-center justify-center gap-2 transition-all"
         >
-          <span>Continue Browsing Pakhis</span>
+          <span>Continue Browsing Pankhis</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

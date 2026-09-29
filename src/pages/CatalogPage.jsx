@@ -31,10 +31,10 @@ export default function CatalogPage({ products, onSelectProduct }) {
             <span>Limited Small Batch Creations</span>
           </div>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-warmbrown-900">
-            The Pakhi Collection
+            The Pankhi Collection
           </h1>
           <p className="text-sm text-warmbrown-700 leading-relaxed">
-            Every pakhi here was carefully crafted by hand at our home in Punjab. Made with pure cotton, silken floss, natural cane, and turned wood handles.
+            Every pankhi here was carefully crafted by hand at our home in Punjab. Made with pure cotton, silken floss, natural cane, and turned wood handles.
           </p>
         </div>
       </div>
@@ -45,41 +45,37 @@ export default function CatalogPage({ products, onSelectProduct }) {
         <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
           <button
             onClick={() => setFilter('all')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
-              filter === 'all'
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${filter === 'all'
                 ? 'bg-terracotta-600 text-cream-50 shadow-sm'
                 : 'bg-cream-100 hover:bg-cream-200 text-warmbrown-800'
-            }`}
+              }`}
           >
-            All Pakhis ({products.length})
+            All Pankhis ({products.length})
           </button>
           <button
             onClick={() => setFilter('phulkari')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
-              filter === 'phulkari'
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${filter === 'phulkari'
                 ? 'bg-terracotta-600 text-cream-50 shadow-sm'
                 : 'bg-cream-100 hover:bg-cream-200 text-warmbrown-800'
-            }`}
+              }`}
           >
             Phulkari Silk Work
           </button>
           <button
             onClick={() => setFilter('heirloom')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
-              filter === 'heirloom'
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${filter === 'heirloom'
                 ? 'bg-terracotta-600 text-cream-50 shadow-sm'
                 : 'bg-cream-100 hover:bg-cream-200 text-warmbrown-800'
-            }`}
+              }`}
           >
             Wedding & Heirloom
           </button>
           <button
             onClick={() => setFilter('under1000')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${
-              filter === 'under1000'
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all ${filter === 'under1000'
                 ? 'bg-terracotta-600 text-cream-50 shadow-sm'
                 : 'bg-cream-100 hover:bg-cream-200 text-warmbrown-800'
-            }`}
+              }`}
           >
             Under ₹1,000
           </button>
@@ -94,7 +90,7 @@ export default function CatalogPage({ products, onSelectProduct }) {
             onChange={(e) => setSortBy(e.target.value)}
             className="text-xs bg-cream-100 border border-warmbrown-300 rounded-xl px-3 py-1.5 text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 cursor-pointer"
           >
-            <option value="featured">Mum's Recommendation</option>
+            <option value="featured">Nani's Recommendation</option>
             <option value="price-low">Price: Low to High</option>
             <option value="price-high">Price: High to Low</option>
             <option value="rating">Top Rated</option>
@@ -105,7 +101,7 @@ export default function CatalogPage({ products, onSelectProduct }) {
       {/* Products Grid */}
       {sortedProducts.length === 0 ? (
         <div className="text-center py-16 bg-cream-50 rounded-2xl border border-warmbrown-200">
-          <p className="font-serif text-lg text-warmbrown-800">No pakhis matched this filter.</p>
+          <p className="font-serif text-lg text-warmbrown-800">No pankhis matched this filter.</p>
           <button
             onClick={() => setFilter('all')}
             className="mt-3 text-xs text-terracotta-600 underline font-medium"
@@ -130,14 +126,14 @@ export default function CatalogPage({ products, onSelectProduct }) {
         <div>
           <h4 className="font-serif font-bold text-terracotta-900 text-base">Looking for a specific wedding shagun color?</h4>
           <p className="text-xs text-terracotta-700 mt-0.5">
-            Mom often embroiders custom colorways to match bridal lehengas or festive home motifs.
+            Nani often embroiders custom colorways to match bridal lehengas or festive home motifs.
           </p>
         </div>
         <a
-          href="mailto:hello@maadipakhi.store?subject=Custom%20Pakhi%20Inquiry"
+          href="mailto:hello@nanidipankhi.store?subject=Custom%20Pankhi%20Inquiry"
           className="shrink-0 px-4 py-2 bg-terracotta-600 hover:bg-terracotta-700 text-cream-50 rounded-xl text-xs font-medium shadow-warm-sm transition-colors"
         >
-          Message Mom for Custom Colors
+          Message Nani for Custom Colors
         </a>
       </div>
     </div>

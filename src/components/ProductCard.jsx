@@ -37,7 +37,7 @@ export default function ProductCard({ product, onViewDetails }) {
             className="w-full bg-cream-100/95 backdrop-blur-sm text-warmbrown-900 py-2.5 px-4 rounded-xl text-xs font-semibold shadow-warm flex items-center justify-center gap-1.5 hover:bg-cream-50 transition-colors"
           >
             <Eye className="w-3.5 h-3.5 text-terracotta-600" />
-            <span>Read Mom's Notes & View</span>
+            <span>Read Nani's Notes & View</span>
           </button>
         </div>
       </div>

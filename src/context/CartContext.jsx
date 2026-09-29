@@ -5,7 +5,7 @@ const CartContext = createContext();
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState(() => {
     try {
-      const saved = localStorage.getItem('maa_pakhi_cart');
+      const saved = localStorage.getItem('nani_pankhi_cart') || localStorage.getItem('maa_pakhi_cart');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -16,7 +16,7 @@ export function CartProvider({ children }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem('maa_pakhi_cart', JSON.stringify(cartItems));
+      localStorage.setItem('nani_pankhi_cart', JSON.stringify(cartItems));
     } catch (e) {
       console.error(e);
     }

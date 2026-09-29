@@ -23,7 +23,7 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
     return (
       <div className="max-w-xl mx-auto px-4 py-20 text-center space-y-4">
         <h2 className="font-serif text-2xl font-bold text-warmbrown-900">Your basket is empty</h2>
-        <p className="text-sm text-warmbrown-600">Please select a pakhi before proceeding to checkout.</p>
+        <p className="text-sm text-warmbrown-600">Please select a pankhi before proceeding to checkout.</p>
         <button
           onClick={() => onNavigate('catalog')}
           className="px-6 py-2.5 bg-terracotta-600 text-cream-50 rounded-xl text-sm font-medium"
@@ -66,7 +66,7 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
     // Simulate Razorpay payment modal / verification flow
     setTimeout(() => {
       const orderDetails = {
-        orderId: `PAKHI-${Math.floor(100000 + Math.random() * 900000)}`,
+        orderId: `PANKHI-${Math.floor(100000 + Math.random() * 900000)}`,
         date: new Date().toLocaleDateString('en-IN', {
           day: 'numeric',
           month: 'short',
@@ -109,7 +109,7 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                 Delivery Details
               </h2>
               <p className="text-xs text-warmbrown-600 mt-1">
-                Tell us where Mom should send your handcrafted pakhi package.
+                Tell us where Nani should send your handcrafted pankhi package.
               </p>
             </div>
 
@@ -125,9 +125,8 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="e.g. Simran Kaur"
-                  className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${
-                    errors.name ? 'border-red-400' : 'border-warmbrown-300'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${errors.name ? 'border-red-400' : 'border-warmbrown-300'
+                    }`}
                 />
                 {errors.name && <p className="text-xs text-red-500 mt-1">{errors.name}</p>}
               </div>
@@ -144,9 +143,8 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="e.g. 9876543210"
-                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${
-                      errors.phone ? 'border-red-400' : 'border-warmbrown-300'
-                    }`}
+                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${errors.phone ? 'border-red-400' : 'border-warmbrown-300'
+                      }`}
                   />
                   {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
                 </div>
@@ -161,9 +159,8 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="simran@example.com"
-                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${
-                      errors.email ? 'border-red-400' : 'border-warmbrown-300'
-                    }`}
+                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${errors.email ? 'border-red-400' : 'border-warmbrown-300'
+                      }`}
                   />
                   {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}
                 </div>
@@ -180,9 +177,8 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                   value={formData.address}
                   onChange={handleInputChange}
                   placeholder="House / Flat No., Street, Landmark"
-                  className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 resize-none ${
-                    errors.address ? 'border-red-400' : 'border-warmbrown-300'
-                  }`}
+                  className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 resize-none ${errors.address ? 'border-red-400' : 'border-warmbrown-300'
+                    }`}
                 />
                 {errors.address && <p className="text-xs text-red-500 mt-1">{errors.address}</p>}
               </div>
@@ -199,9 +195,8 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                     value={formData.city}
                     onChange={handleInputChange}
                     placeholder="Amritsar"
-                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${
-                      errors.city ? 'border-red-400' : 'border-warmbrown-300'
-                    }`}
+                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${errors.city ? 'border-red-400' : 'border-warmbrown-300'
+                      }`}
                   />
                   {errors.city && <p className="text-xs text-red-500 mt-1">{errors.city}</p>}
                 </div>
@@ -240,18 +235,17 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
                     value={formData.pincode}
                     onChange={handleInputChange}
                     placeholder="143001"
-                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${
-                      errors.pincode ? 'border-red-400' : 'border-warmbrown-300'
-                    }`}
+                    className={`w-full px-3.5 py-2.5 bg-cream-100/70 border rounded-xl text-sm text-warmbrown-900 focus:outline-none focus:ring-1 focus:ring-terracotta-500 ${errors.pincode ? 'border-red-400' : 'border-warmbrown-300'
+                      }`}
                   />
                   {errors.pincode && <p className="text-xs text-red-500 mt-1">{errors.pincode}</p>}
                 </div>
               </div>
 
-              {/* Gift message note for Mom */}
+              {/* Gift message note for Nani */}
               <div className="pt-2">
                 <label className="block text-xs font-semibold text-warmbrown-800 mb-1 flex items-center justify-between">
-                  <span>Gift Note (Optional — Mom will handwrite this on a card)</span>
+                  <span>Gift Note (Optional — Nani will handwrite this on a card)</span>
                   <span className="font-hand text-terracotta-600 text-xs">A special touch 💌</span>
                 </label>
                 <textarea
@@ -348,7 +342,7 @@ export default function CheckoutPage({ onNavigate, onOrderSuccess }) {
               <span>Direct Family Support</span>
             </div>
             <p className="leading-relaxed">
-              100% of proceeds go directly toward funding Mom's materials, threads, wood lathes, and encouraging young girls in our village to learn traditional needle crafts.
+              100% of proceeds go directly toward funding Nani's materials, threads, wood lathes, and encouraging young girls in our village to learn traditional needle crafts.
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
       <section className="relative overflow-hidden pt-6 sm:pt-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-[#fcf6ee] via-cream-100 to-terracotta-50/60 rounded-3xl p-6 sm:p-12 lg:p-16 border border-warmbrown-200/80 shadow-warm relative">
-            
+
             {/* Background handmade floral accents */}
             <div className="absolute top-4 right-4 sm:top-8 sm:right-8 opacity-10 pointer-events-none text-7xl sm:text-9xl select-none font-serif">
               🪭
@@ -28,11 +28,11 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
                 </div>
 
                 <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-warmbrown-900 leading-[1.15] tracking-tight">
-                  Heirloom Punjabi <span className="text-terracotta-600 underline decoration-mustard-400 decoration-wavy underline-offset-8">Pakhis</span>, stitched by my Mom.
+                  Heirloom Punjabi <span className="text-terracotta-600 underline decoration-mustard-400 decoration-wavy underline-offset-8">Pankhis</span>, stitched by my Nani.
                 </h1>
 
                 <p className="text-base sm:text-lg text-warmbrown-700 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal">
-                  In an age of noisy plastic fans, my mom sits in our verandah with silk floss, khaddar cloth, and Sheesham wood — carrying forward centuries of Punjabi craft. Every piece brings a gentle, soul-cooling breeze into your home.
+                  In an age of noisy plastic fans, my Nani sits in our verandah with silk floss, khaddar cloth, and Sheesham wood — carrying forward centuries of Punjabi craft. Every piece brings a gentle, soul-cooling breeze into your home.
                 </p>
 
                 {/* CTA actions */}
@@ -41,7 +41,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
                     onClick={() => onNavigate('catalog')}
                     className="w-full sm:w-auto px-8 py-4 bg-terracotta-600 hover:bg-terracotta-700 active:scale-95 text-cream-50 font-medium rounded-2xl shadow-warm flex items-center justify-center gap-2 group transition-all text-base"
                   >
-                    <span>Browse Mom's Collection</span>
+                    <span>Browse Nani's Collection</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </button>
                   <button
@@ -62,7 +62,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
                   </div>
                   <div>
                     <p className="font-serif text-xl sm:text-2xl font-bold text-terracotta-700">12-18 hrs</p>
-                    <p className="text-xs text-warmbrown-600">Per Pakhi Crafting</p>
+                    <p className="text-xs text-warmbrown-600">Per Pankhi Crafting</p>
                   </div>
                   <div>
                     <p className="font-serif text-xl sm:text-2xl font-bold text-terracotta-700">Natural</p>
@@ -77,20 +77,19 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
                   {/* Decorative background framing */}
                   <div className="absolute -inset-3 bg-mustard-200/60 rounded-3xl transform rotate-2 blur-[1px]"></div>
                   <div className="absolute -inset-2 bg-terracotta-200/60 rounded-3xl transform -rotate-2"></div>
-                  
+
                   <div className="relative bg-cream-50 rounded-2xl overflow-hidden border-2 border-warmbrown-200 shadow-warm-lg p-2.5">
-                    <img
-                      src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=800&q=80"
-                      alt="Traditional Punjabi embroidered pakhi"
+                    <img src=".\Products pics\homepic.png"
+
                       className="w-full h-80 sm:h-96 object-cover rounded-xl"
                     />
                     <div className="p-4 bg-cream-100 rounded-xl mt-2 flex items-center justify-between border border-warmbrown-200/70">
                       <div>
-                        <span className="text-[11px] font-hand text-terracotta-600 font-semibold tracking-wider">FRESHLY FINISHED BY MOM</span>
-                        <h4 className="font-serif font-bold text-warmbrown-900 text-sm">Phulkari Gulab Pakhi</h4>
+                        <span className="text-[11px] font-hand text-terracotta-600 font-semibold tracking-wider">FRESHLY FINISHED BY NANI</span>
+                        <h4 className="font-serif font-bold text-warmbrown-900 text-sm">Phulkari Gulab Pankhi</h4>
                         <p className="text-xs text-warmbrown-600">Rose silk thread with Sheesham handle</p>
                       </div>
-                      <button 
+                      <button
                         onClick={() => onSelectProduct('phulkari-gulab')}
                         className="p-2 rounded-xl bg-terracotta-600 text-cream-50 hover:bg-terracotta-700 transition-colors shadow-warm-sm"
                         title="View detail"
@@ -115,7 +114,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
               <span>• Hand-Selected</span>
             </div>
             <h2 className="font-serif text-2xl sm:text-4xl font-bold text-warmbrown-900">
-              Mom's Featured Pakhis
+              Nani's Featured Pankhis
             </h2>
             <p className="text-sm text-warmbrown-600 mt-1 max-w-md">
               Each piece is created in single quantities or tiny batches. No two are completely identical.
@@ -145,23 +144,23 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
       <section id="our-story" className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#fcf7ee] rounded-3xl p-8 sm:p-14 border border-warmbrown-200/90 shadow-warm relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative">
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden border-2 border-warmbrown-300 shadow-warm">
                   <img
-                    src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"
-                    alt="Mom hand-embroidering needlework"
+                    src="/Products pics/1.jpg"
+                    alt="Nani hand-embroidering needlework"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                {/* Mom quote polaroid card */}
+                {/* Nani quote polaroid card */}
                 <div className="absolute -bottom-6 -right-3 sm:-bottom-6 sm:-right-6 bg-cream-50 p-4 rounded-xl border border-warmbrown-300 shadow-warm max-w-[240px]">
                   <p className="font-hand text-base text-terracotta-700 leading-snug">
-                    "Jad hawa chaldi hai pakhi ton, lage jive pind di dhoop vi thandi ho gayi."
+                    "Jad hawa chaldi hai pankhi ton, lage jive pind di dhoop vi thandi ho gayi."
                   </p>
                   <p className="text-[11px] text-warmbrown-500 mt-2 font-medium">
-                    — Mata Ji (Mom's words)
+                    — Nani Ji's words
                   </p>
                 </div>
               </div>
@@ -173,15 +172,15 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-warmbrown-900 leading-tight">
-                Not a factory. Just my Mom's peaceful afternoon verandah.
+                Not a factory. Just my Nani's peaceful afternoon verandah.
               </h2>
 
               <p className="text-sm sm:text-base text-warmbrown-700 leading-relaxed">
-                Growing up in Punjab, summers were always greeted by the gentle flutter of hand-fans during electricity power-cuts. Grandmothers and mothers would pass down embroidered pakhis as treasured dowry heirlooms and gifts of comfort.
+                Growing up in Punjab, summers were always greeted by the gentle flutter of hand-fans during electricity power-cuts. Grandmothers and mothers would pass down embroidered pankhis as treasured dowry heirlooms and gifts of comfort.
               </p>
 
               <p className="text-sm sm:text-base text-warmbrown-700 leading-relaxed">
-                As the years passed, mass-produced plastic took over and the art was being forgotten. But my mother never stopped stitching. When friends visited and fell in love with her needlework, I decided to build her this small storefront to share her timeless craft directly with you.
+                As the years passed, mass-produced plastic took over and the art was being forgotten. But my Nani never stopped stitching. When friends visited and fell in love with her needlework, I decided to build her this small storefront to share her timeless craft directly with you.
               </p>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -215,7 +214,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="font-hand text-terracotta-600 text-xl font-bold">Kala Te Hunar</span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-warmbrown-900 mt-1">
-            How Mom Hand-Crafts Each Pakhi
+            How Nani Hand-Crafts Each Pankhi
           </h2>
           <p className="text-sm text-warmbrown-600 mt-2">
             No machines, no printing stamps. Pure patience and muscle memory from 35+ years of needlework.
@@ -229,7 +228,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
             </div>
             <h3 className="font-serif font-bold text-lg text-warmbrown-900 mb-2">Bane & Frame Shaping</h3>
             <p className="text-xs text-warmbrown-600 leading-relaxed">
-              Mom bends treated seasoned river-cane or bamboo into a sturdy circular rim, secured with tight cotton cord wrapping.
+              Nani bends treated seasoned river-cane or bamboo into a sturdy circular rim, secured with tight cotton cord wrapping.
             </p>
           </div>
 

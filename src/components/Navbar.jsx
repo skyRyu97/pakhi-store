@@ -18,7 +18,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
       {/* Top rustic announcement strip */}
       <div className="bg-terracotta-700 text-cream-100 text-xs sm:text-sm py-1.5 px-4 text-center tracking-wide font-medium flex items-center justify-center gap-2">
         <Sparkles className="w-3.5 h-3.5 text-mustard-300" />
-        <span>Every pakhi hand-stitched by Mum with love in Punjab • Free shipping on orders over ₹1,500</span>
+        <span>Every pankhi hand-stitched by Nani with love in Punjab • Free shipping on orders over ₹1,500</span>
         <Sparkles className="w-3.5 h-3.5 text-mustard-300 hidden sm:inline" />
       </div>
 
@@ -33,7 +33,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
           </div>
           <div>
             <span className="font-serif text-2xl font-bold tracking-tight text-warmbrown-900 group-hover:text-terracotta-700 transition-colors">
-              Maa Di Pakhi
+              Nani Di Pankhi
             </span>
             <span className="block text-[11px] font-hand text-terracotta-600 tracking-wider -mt-1">
               punjabi heritage crafts • ਹੱਥ ਦੀ ਬਣੀ
@@ -57,7 +57,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
               activePage === 'catalog' ? 'text-terracotta-700 font-semibold border-b-2 border-terracotta-500' : ''
             }`}
           >
-            Handmade Pakhis
+            Handmade Pankhis
           </button>
           <button
             onClick={() => {
@@ -72,7 +72,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
             }}
             className="transition-colors hover:text-terracotta-600"
           >
-            Mum's Story
+            Nani's Story
           </button>
           <button
             onClick={() => {
@@ -134,7 +134,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
               activePage === 'catalog' ? 'text-terracotta-700 font-semibold' : 'text-warmbrown-800'
             }`}
           >
-            Browse All Pakhis
+            Browse All Pankhis
           </button>
           <button
             onClick={() => {
@@ -150,7 +150,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
             }}
             className="block w-full text-left py-2 text-base font-medium text-warmbrown-800"
           >
-            Mum's Story
+            Nani's Story
           </button>
           <button
             onClick={() => {

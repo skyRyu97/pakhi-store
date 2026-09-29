@@ -11,7 +11,7 @@ export default function ProductDetailPage({ product, onBack, onNavigateToCart })
   if (!product) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h2 className="font-serif text-2xl text-warmbrown-800">Pakhi not found</h2>
+        <h2 className="font-serif text-2xl text-warmbrown-800">Pankhi not found</h2>
         <button
           onClick={onBack}
           className="mt-4 px-6 py-2.5 bg-terracotta-600 text-cream-50 rounded-xl text-sm"
@@ -39,10 +39,10 @@ export default function ProductDetailPage({ product, onBack, onNavigateToCart })
           className="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-warmbrown-700 hover:text-terracotta-700 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Back to all pakhis</span>
+          <span>Back to all pankhis</span>
         </button>
         <span className="text-xs text-warmbrown-500 font-hand text-base">
-          Maa Di Pakhi • Serial #MDP-{product.id.slice(0, 4).toUpperCase()}
+          Nani Di Pankhi • Serial #NDP-{product.id.slice(0, 4).toUpperCase()}
         </span>
       </div>
 
@@ -69,11 +69,10 @@ export default function ProductDetailPage({ product, onBack, onNavigateToCart })
                 <button
                   key={idx}
                   onClick={() => setSelectedImg(img)}
-                  className={`w-20 h-20 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${
-                    selectedImg === img
+                  className={`w-20 h-20 rounded-xl overflow-hidden border-2 shrink-0 transition-all ${selectedImg === img
                       ? 'border-terracotta-600 ring-2 ring-terracotta-300 scale-95'
                       : 'border-warmbrown-200 opacity-70 hover:opacity-100'
-                  }`}
+                    }`}
                 >
                   <img src={img} alt={`View ${idx + 1}`} className="w-full h-full object-cover" />
                 </button>
@@ -85,7 +84,7 @@ export default function ProductDetailPage({ product, onBack, onNavigateToCart })
           <div className="p-4 bg-cream-100/70 border border-warmbrown-200 rounded-2xl flex items-start gap-3 text-xs text-warmbrown-700">
             <Heart className="w-4 h-4 text-terracotta-500 shrink-0 mt-0.5" />
             <p>
-              <strong className="font-serif text-warmbrown-900">Each one is unique:</strong> Because mom dyes the threads and hand-turns each wooden handle without computerized stencils, gentle variations in motif shade and tassel length are natural markers of authenticity.
+              <strong className="font-serif text-warmbrown-900">Each one is unique:</strong> Because Nani dyes the threads and hand-turns each wooden handle without computerized stencils, gentle variations in motif shade and tassel length are natural markers of authenticity.
             </p>
           </div>
         </div>

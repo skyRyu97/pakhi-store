@@ -7,11 +7,24 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import AdminPage from './pages/AdminPage';
 import { PANKHI_PRODUCTS } from './data/products';
 import { CartProvider, useCart } from './context/CartContext';
 
+const PRODUCTS_STORAGE_KEY = 'nani_pankhi_products';
+
+function loadProducts() {
+  try {
+    const savedProducts = localStorage.getItem(PRODUCTS_STORAGE_KEY);
+    return savedProducts ? JSON.parse(savedProducts) : PANKHI_PRODUCTS;
+  } catch {
+    return PANKHI_PRODUCTS;
+  }
+}
+
 function StoreApp() {
-  const [activePage, setActivePage] = useState('home'); // home | catalog | detail | cart | checkout | confirmation
+  const [activePage, setActivePage] = useState('home');
+  const [products, setProducts] = useState(loadProducts);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [latestOrder, setLatestOrder] = useState(null);
   const { notification } = useCart();
@@ -28,7 +41,33 @@ function StoreApp() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const currentProduct = PANKHI_PRODUCTS.find(p => p.id === selectedProductId) || PANKHI_PRODUCTS[0];
+  const handleSaveProduct = (product) => {
+    const nextProducts = products.some(item => item.id === product.id)
+      ? products.map(item => item.id === product.id ? product : item)
+      : [...products, product];
+
+    try {
+      localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(nextProducts));
+      setProducts(nextProducts);
+      return { success: true };
+    } catch {
+      return { success: false, error: 'Could not save. The browser may be out of storage space; try smaller photos.' };
+    }
+  };
+
+  const handleDeleteProduct = (productId) => {
+    const nextProducts = products.filter(product => product.id !== productId);
+
+    try {
+      localStorage.setItem(PRODUCTS_STORAGE_KEY, JSON.stringify(nextProducts));
+      setProducts(nextProducts);
+      return { success: true };
+    } catch {
+      return { success: false, error: 'Could not update the saved product list.' };
+    }
+  };
+
+  const currentProduct = products.find(p => p.id === selectedProductId) || products[0];
 
   return (
     <div className="min-h-screen flex flex-col font-sans selection:bg-terracotta-200 selection:text-terracotta-900">
@@ -50,7 +89,7 @@ function StoreApp() {
       <main className="flex-1">
         {activePage === 'home' && (
           <HomePage
-            products={PANKHI_PRODUCTS}
+            products={products}
             onNavigate={setActivePage}
             onSelectProduct={handleSelectProduct}
           />
@@ -58,7 +97,7 @@ function StoreApp() {
 
         {activePage === 'catalog' && (
           <CatalogPage
-            products={PANKHI_PRODUCTS}
+            products={products}
             onSelectProduct={handleSelectProduct}
           />
         )}
@@ -89,6 +128,14 @@ function StoreApp() {
           <OrderConfirmationPage
             order={latestOrder}
             onNavigate={setActivePage}
+          />
+        )}
+
+        {activePage === 'admin' && (
+          <AdminPage
+            products={products}
+            onSaveProduct={handleSaveProduct}
+            onDeleteProduct={handleDeleteProduct}
           />
         )}
       </main>

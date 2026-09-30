@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Heart, Menu, X, Sparkles } from 'lucide-react';
+import { ShoppingBag, Heart, Menu, X, Sparkles, Settings2 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar({ activePage, setActivePage, setSelectedProductId }) {
@@ -58,6 +58,14 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
             }`}
           >
             Handmade Pankhis
+          </button>
+          <button
+            onClick={() => navigateTo('admin')}
+            className={`transition-colors hover:text-terracotta-600 pb-0.5 ${
+              activePage === 'admin' ? 'text-terracotta-700 font-semibold border-b-2 border-terracotta-500' : ''
+            }`}
+          >
+            <span className="inline-flex items-center gap-1.5"><Settings2 className="w-4 h-4" />Manage</span>
           </button>
           <button
             onClick={() => {
@@ -135,6 +143,14 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
             }`}
           >
             Browse All Pankhis
+          </button>
+          <button
+            onClick={() => navigateTo('admin')}
+            className={`flex items-center gap-2 w-full text-left py-2 text-base font-medium ${
+              activePage === 'admin' ? 'text-terracotta-700 font-semibold' : 'text-warmbrown-800'
+            }`}
+          >
+            <Settings2 className="w-4 h-4" /> Manage Products
           </button>
           <button
             onClick={() => {

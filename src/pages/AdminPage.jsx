@@ -195,7 +195,7 @@ export default function AdminPage({ products, onSaveProduct, onDeleteProduct }) 
                 <input className={inputClass} type="number" name="originalPrice" value={draft.originalPrice} onChange={updateField} min="0" step="1" />
               </label>
               <label>
-                <span className={labelClass}>Stock quantity *</span>
+                <span className={labelClass}>Available stock *</span>
                 <input className={inputClass} type="number" name="inStock" value={draft.inStock} onChange={updateField} min="0" step="1" required />
               </label>
               <label>
@@ -209,31 +209,62 @@ export default function AdminPage({ products, onSaveProduct, onDeleteProduct }) 
             </div>
 
             <label className="block">
-              <span className={labelClass}>Main photo URL *</span>
-              <input className={inputClass} type="url" name="image" value={draft.image} onChange={updateField} placeholder="https://... or upload a photo below" required />
-            </label>
-            <label className="block">
-              <span className={labelClass}>Upload main photo</span>
-              <span className="flex flex-wrap items-center gap-3">
+              <span className={labelClass}>Main photo</span>
+              <span className="flex flex-wrap items-center gap-3 mt-1">
                 <input className="block w-full max-w-md text-xs text-warmbrown-700 file:mr-3 file:rounded-md file:border-0 file:bg-terracotta-100 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-terracotta-900 hover:file:bg-terracotta-200" type="file" accept="image/*" onChange={event => handleImageUpload(event)} />
                 <span className="text-xs text-warmbrown-500">Resized for browser storage</span>
               </span>
             </label>
             {draft.image && (
-              <img src={draft.image} alt="Main product preview" className="h-36 w-36 rounded-md border border-warmbrown-200 bg-cream-100 object-cover" />
+              <div className="relative inline-block">
+                <img src={draft.image} alt="Main product preview" className="h-36 w-36 rounded-md border border-warmbrown-200 bg-cream-100 object-cover" />
+                <button
+                  type="button"
+                  onClick={() => setDraft(current => ({ ...current, image: '' }))}
+                  className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md transition-colors"
+                  aria-label="Remove main photo"
+                  title="Remove main photo"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </div>
             )}
 
             <label className="block">
-              <span className={labelClass}>Additional photo URLs</span>
-              <textarea className={inputClass} name="additionalImages" value={draft.additionalImages} onChange={updateField} rows="3" placeholder="Add one image URL per line" />
-            </label>
-            <label className="block">
-              <span className={labelClass}>Upload additional photos</span>
-              <span className="flex items-center gap-3">
+              <span className={labelClass}>Additional photos <span className="text-warmbrown-400 font-normal">(shown in product gallery)</span></span>
+              <span className="flex items-center gap-3 mt-1">
                 <ImagePlus className="h-4 w-4 shrink-0 text-terracotta-700" />
-                <input className="block w-full text-xs text-warmbrown-700 file:mr-3 file:rounded-md file:border-0 file:bg-terracotta-100 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-terracotta-900 hover:file:bg-terracotta-200" type="file" accept="image/*" multiple onChange={event => handleImageUpload(event, true)} />
+                <input
+                  className="block w-full text-xs text-warmbrown-700 file:mr-3 file:rounded-md file:border-0 file:bg-terracotta-100 file:px-3 file:py-2 file:text-xs file:font-semibold file:text-terracotta-900 hover:file:bg-terracotta-200"
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={event => handleImageUpload(event, true)}
+                />
               </span>
             </label>
+
+            {draft.additionalImages && draft.additionalImages.trim() !== '' && (
+              <div className="flex flex-wrap gap-3 mt-2">
+                {draft.additionalImages.split('\n').filter(url => url.trim()).map((img, idx) => (
+                  <div key={idx} className="relative inline-block">
+                    <img src={img.trim()} alt={`Additional preview ${idx + 1}`} className="h-20 w-20 rounded-md border border-warmbrown-200 bg-cream-100 object-cover" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const filtered = draft.additionalImages.split('\n').filter(u => u.trim()).filter((_, i) => i !== idx);
+                        setDraft(current => ({ ...current, additionalImages: filtered.join('\n') }));
+                      }}
+                      className="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-5 h-5 flex items-center justify-center shadow-md transition-colors"
+                      aria-label={`Remove photo ${idx + 1}`}
+                      title="Remove photo"
+                    >
+                      <X className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <label className="block">
               <span className={labelClass}>Description *</span>

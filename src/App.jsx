@@ -8,6 +8,7 @@ import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import AdminPage from './pages/AdminPage';
+import LoginPage from './pages/LoginPage';
 import { PANKHI_PRODUCTS } from './data/products';
 import { CartProvider, useCart } from './context/CartContext';
 
@@ -27,6 +28,7 @@ function StoreApp() {
   const [products, setProducts] = useState(loadProducts);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [latestOrder, setLatestOrder] = useState(null);
+  const [user, setUser] = useState(null);
   const { notification } = useCart();
 
   const handleSelectProduct = (productId) => {
@@ -83,6 +85,11 @@ function StoreApp() {
         activePage={activePage}
         setActivePage={setActivePage}
         setSelectedProductId={setSelectedProductId}
+        user={user}
+        onLogout={() => {
+          setUser(null);
+          setActivePage('home');
+        }}
       />
 
       {/* Dynamic Page Views */}
@@ -131,7 +138,14 @@ function StoreApp() {
           />
         )}
 
-        {activePage === 'admin' && (
+        {activePage === 'login' && (
+          <LoginPage
+            onLogin={setUser}
+            onNavigate={setActivePage}
+          />
+        )}
+
+        {activePage === 'admin' && user?.role === 'admin' && (
           <AdminPage
             products={products}
             onSaveProduct={handleSaveProduct}

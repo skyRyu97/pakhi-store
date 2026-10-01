@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { ShoppingBag, Heart, Menu, X, Sparkles, Settings2 } from 'lucide-react';
+import { ShoppingBag, Heart, Menu, X, Sparkles, Settings2, LogIn, LogOut, User as UserIcon } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
-export default function Navbar({ activePage, setActivePage, setSelectedProductId }) {
+export default function Navbar({ activePage, setActivePage, setSelectedProductId, user, onLogout }) {
   const { totalItems } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -59,14 +59,16 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
           >
             Handmade Pankhis
           </button>
-          <button
-            onClick={() => navigateTo('admin')}
-            className={`transition-colors hover:text-terracotta-600 pb-0.5 ${
-              activePage === 'admin' ? 'text-terracotta-700 font-semibold border-b-2 border-terracotta-500' : ''
-            }`}
-          >
-            <span className="inline-flex items-center gap-1.5"><Settings2 className="w-4 h-4" />Manage</span>
-          </button>
+          {user?.role === 'admin' && (
+            <button
+              onClick={() => navigateTo('admin')}
+              className={`transition-colors hover:text-terracotta-600 pb-0.5 ${
+                activePage === 'admin' ? 'text-terracotta-700 font-semibold border-b-2 border-terracotta-500' : ''
+              }`}
+            >
+              <span className="inline-flex items-center gap-1.5"><Settings2 className="w-4 h-4" />Manage</span>
+            </button>
+          )}
           <button
             onClick={() => {
               if (activePage !== 'home') {
@@ -114,6 +116,31 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
             )}
           </button>
 
+          {user ? (
+            <div className="hidden md:flex items-center gap-3 ml-2 border-l border-warmbrown-200 pl-4">
+              <div className="flex items-center gap-1.5 text-sm font-medium text-warmbrown-800 bg-cream-100 px-3 py-1.5 rounded-full border border-warmbrown-200">
+                <UserIcon className="w-4 h-4 text-terracotta-600" />
+                <span className="max-w-[100px] truncate">{user.name}</span>
+              </div>
+              <button
+                onClick={onLogout}
+                className="p-2 rounded-full text-warmbrown-600 hover:text-terracotta-700 hover:bg-cream-200 transition-colors flex items-center justify-center group"
+                aria-label="Log Out"
+                title="Log Out"
+              >
+                <LogOut className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </button>
+            </div>
+          ) : (
+            <button
+              onClick={() => navigateTo('login')}
+              className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-terracotta-600 hover:bg-terracotta-700 text-white text-sm font-medium rounded-full transition-colors ml-2 shadow-warm-sm"
+            >
+              <LogIn className="w-4 h-4" />
+              Sign In
+            </button>
+          )}
+
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -144,14 +171,16 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
           >
             Browse All Pankhis
           </button>
-          <button
-            onClick={() => navigateTo('admin')}
-            className={`flex items-center gap-2 w-full text-left py-2 text-base font-medium ${
-              activePage === 'admin' ? 'text-terracotta-700 font-semibold' : 'text-warmbrown-800'
-            }`}
-          >
-            <Settings2 className="w-4 h-4" /> Manage Products
-          </button>
+          {user?.role === 'admin' && (
+            <button
+              onClick={() => navigateTo('admin')}
+              className={`flex items-center gap-2 w-full text-left py-2 text-base font-medium ${
+                activePage === 'admin' ? 'text-terracotta-700 font-semibold' : 'text-warmbrown-800'
+              }`}
+            >
+              <Settings2 className="w-4 h-4" /> Manage Products
+            </button>
+          )}
           <button
             onClick={() => {
               setMobileMenuOpen(false);
@@ -168,16 +197,44 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
           >
             Nani's Story
           </button>
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              navigateTo('cart');
-            }}
-            className="block w-full text-left py-2 text-base font-medium text-terracotta-700"
-          >
-            View Cart ({totalItems} items)
-          </button>
-        </div>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                navigateTo('cart');
+              }}
+              className="block w-full text-left py-2 text-base font-medium text-terracotta-700"
+            >
+              View Cart ({totalItems} items)
+            </button>
+            <div className="pt-2 border-t border-warmbrown-200">
+              {user ? (
+                <>
+                  <div className="py-2 text-sm text-warmbrown-500 font-medium flex items-center gap-2">
+                    <UserIcon className="w-4 h-4" /> Signed in as {user.name}
+                  </div>
+                  <button
+                    onClick={() => {
+                      setMobileMenuOpen(false);
+                      onLogout();
+                    }}
+                    className="flex items-center gap-2 w-full text-left py-2 text-base font-medium text-warmbrown-800"
+                  >
+                    <LogOut className="w-4 h-4" /> Log Out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigateTo('login');
+                  }}
+                  className="flex items-center gap-2 w-full text-left py-2 text-base font-medium text-terracotta-700"
+                >
+                  <LogIn className="w-4 h-4" /> Sign In
+                </button>
+              )}
+            </div>
+          </div>
       )}
     </header>
   );

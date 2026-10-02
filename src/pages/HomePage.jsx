@@ -190,7 +190,7 @@ export default function HomePage({ products, onNavigate, onSelectProduct }) {
                     Slow & Sustainable
                   </h4>
                   <p className="text-xs text-warmbrown-600 mt-1">
-                    Zero plastic. Made using organic cottons, cane frames, and biodegradable threads.
+                    Zero plastic. Made using pure cotton fabric, cotton threads, and natural cane frames.
                   </p>
                 </div>
                 <div className="p-4 rounded-xl bg-cream-100/80 border border-warmbrown-200">

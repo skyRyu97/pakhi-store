@@ -28,7 +28,14 @@ function StoreApp() {
   const [products, setProducts] = useState(loadProducts);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [latestOrder, setLatestOrder] = useState(null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('nani_pankhi_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
   const { notification } = useCart();
 
   const handleSelectProduct = (productId) => {
@@ -55,6 +62,19 @@ function StoreApp() {
     } catch {
       return { success: false, error: 'Could not save. The browser may be out of storage space; try smaller photos.' };
     }
+  };
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+    try {
+      localStorage.setItem('nani_pankhi_user', JSON.stringify(userData));
+    } catch { /* silent */ }
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('nani_pankhi_user');
+    setActivePage('home');
   };
 
   const handleDeleteProduct = (productId) => {
@@ -86,10 +106,7 @@ function StoreApp() {
         setActivePage={setActivePage}
         setSelectedProductId={setSelectedProductId}
         user={user}
-        onLogout={() => {
-          setUser(null);
-          setActivePage('home');
-        }}
+        onLogout={handleLogout}
       />
 
       {/* Dynamic Page Views */}
@@ -140,17 +157,34 @@ function StoreApp() {
 
         {activePage === 'login' && (
           <LoginPage
-            onLogin={setUser}
+            onLogin={handleLogin}
             onNavigate={setActivePage}
           />
         )}
 
-        {activePage === 'admin' && user?.role === 'admin' && (
-          <AdminPage
-            products={products}
-            onSaveProduct={handleSaveProduct}
-            onDeleteProduct={handleDeleteProduct}
-          />
+        {activePage === 'admin' && (
+          user?.role === 'admin'
+            ? <AdminPage
+                products={products}
+                onSaveProduct={handleSaveProduct}
+                onDeleteProduct={handleDeleteProduct}
+              />
+            : <LoginPage onLogin={handleLogin} onNavigate={setActivePage} />
+        )}
+
+        {/* 404 fallback */}
+        {!['home','catalog','detail','cart','checkout','confirmation','login','admin'].includes(activePage) && (
+          <div className="max-w-md mx-auto py-24 text-center space-y-4">
+            <div className="text-5xl">🪭</div>
+            <h2 className="font-serif text-2xl font-bold text-warmbrown-900">Page not found</h2>
+            <p className="text-sm text-warmbrown-600">Nani couldn't find that page either.</p>
+            <button
+              onClick={() => setActivePage('home')}
+              className="px-6 py-2.5 bg-terracotta-600 text-cream-50 rounded-xl text-sm font-medium hover:bg-terracotta-700 transition-colors"
+            >
+              Back to Home
+            </button>
+          </div>
         )}
       </main>
 

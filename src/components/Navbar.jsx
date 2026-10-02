@@ -137,7 +137,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
               className="hidden md:flex items-center gap-1.5 px-4 py-2 bg-terracotta-600 hover:bg-terracotta-700 text-white text-sm font-medium rounded-full transition-colors ml-2 shadow-warm-sm"
             >
               <LogIn className="w-4 h-4" />
-              Sign In
+              Sign In/Up
             </button>
           )}
 
@@ -230,7 +230,7 @@ export default function Navbar({ activePage, setActivePage, setSelectedProductId
                   }}
                   className="flex items-center gap-2 w-full text-left py-2 text-base font-medium text-terracotta-700"
                 >
-                  <LogIn className="w-4 h-4" /> Sign In
+                  <LogIn className="w-4 h-4" /> Sign In/Up
                 </button>
               )}
             </div>

@@ -3,11 +3,11 @@ import { User, Mail, Lock, LogIn, UserPlus, MapPin, Plus, Trash2 } from 'lucide-
 
 export default function LoginPage({ onLogin, onNavigate }) {
   const [isLogin, setIsLogin] = useState(true);
-  
+
   // Login State
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
-  
+
   // Signup State
   const [signupName, setSignupName] = useState('');
   const [signupEmail, setSignupEmail] = useState('');
@@ -15,6 +15,16 @@ export default function LoginPage({ onLogin, onNavigate }) {
   const [addresses, setAddresses] = useState(['']);
 
   const [error, setError] = useState('');
+
+  // Helpers to read/write users from localStorage
+  const getStoredUsers = () => {
+    try { return JSON.parse(localStorage.getItem('nani_pankhi_users') || '[]'); }
+    catch { return []; }
+  };
+  const saveStoredUsers = (users) => {
+    try { localStorage.setItem('nani_pankhi_users', JSON.stringify(users)); }
+    catch { /* silent */ }
+  };
 
   const handleAddAddress = () => {
     setAddresses([...addresses, '']);
@@ -38,40 +48,54 @@ export default function LoginPage({ onLogin, onNavigate }) {
     if (loginUsername === 'Admin@123#' && loginPassword === 'Admin@123#') {
       onLogin({ role: 'admin', name: 'Admin' });
       onNavigate('admin');
+      return;
+    }
+
+    // Check stored users first
+    const users = getStoredUsers();
+    const found = users.find(
+      u => (u.email === loginUsername || u.name === loginUsername) && u.password === loginPassword
+    );
+
+    if (found) {
+      onLogin({ role: 'customer', name: found.name, email: found.email, addresses: found.addresses });
+      onNavigate('home');
+    } else if (loginUsername && loginPassword) {
+      // Guest / unregistered fallback
+      onLogin({ role: 'customer', name: loginUsername });
+      onNavigate('home');
     } else {
-      // In a real app we'd check a database
-      // For this simple mock, we'll just log them in if they put anything.
-      if (loginUsername && loginPassword) {
-        onLogin({ role: 'customer', name: loginUsername });
-        onNavigate('home');
-      } else {
-        setError('Please enter username and password');
-      }
+      setError('Please enter username and password');
     }
   };
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
     setError('');
-    
+
     if (!signupName || !signupEmail || !signupPassword) {
       setError('Please fill in all required fields');
       return;
     }
-    
-    // Valid addresses
+
     const validAddresses = addresses.filter(a => a.trim() !== '');
     if (validAddresses.length === 0) {
       setError('Please provide at least one address');
       return;
     }
 
-    onLogin({ 
-      role: 'customer', 
-      name: signupName, 
-      email: signupEmail, 
-      addresses: validAddresses 
-    });
+    // Check for duplicate email
+    const users = getStoredUsers();
+    if (users.find(u => u.email === signupEmail)) {
+      setError('An account with this email already exists. Please sign in.');
+      return;
+    }
+
+    // Persist the new user
+    const newUser = { name: signupName, email: signupEmail, password: signupPassword, addresses: validAddresses };
+    saveStoredUsers([...users, newUser]);
+
+    onLogin({ role: 'customer', name: signupName, email: signupEmail, addresses: validAddresses });
     onNavigate('home');
   };
 
@@ -82,21 +106,19 @@ export default function LoginPage({ onLogin, onNavigate }) {
           🪭
         </div>
       </div>
-      
+
       <div className="flex gap-4 mb-8">
-        <button 
+        <button
           onClick={() => { setIsLogin(true); setError(''); }}
-          className={`flex-1 py-2 font-semibold text-center rounded-lg transition-colors ${
-            isLogin ? 'bg-terracotta-600 text-white' : 'bg-warmbrown-100 text-warmbrown-700 hover:bg-warmbrown-200'
-          }`}
+          className={`flex-1 py-2 font-semibold text-center rounded-lg transition-colors ${isLogin ? 'bg-terracotta-600 text-white' : 'bg-warmbrown-100 text-warmbrown-700 hover:bg-warmbrown-200'
+            }`}
         >
           Sign In
         </button>
-        <button 
+        <button
           onClick={() => { setIsLogin(false); setError(''); }}
-          className={`flex-1 py-2 font-semibold text-center rounded-lg transition-colors ${
-            !isLogin ? 'bg-terracotta-600 text-white' : 'bg-warmbrown-100 text-warmbrown-700 hover:bg-warmbrown-200'
-          }`}
+          className={`flex-1 py-2 font-semibold text-center rounded-lg transition-colors ${!isLogin ? 'bg-terracotta-600 text-white' : 'bg-warmbrown-100 text-warmbrown-700 hover:bg-warmbrown-200'
+            }`}
         >
           Sign Up
         </button>
@@ -125,7 +147,7 @@ export default function LoginPage({ onLogin, onNavigate }) {
               />
             </div>
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-warmbrown-800 mb-1">Password</label>
             <div className="relative">
@@ -182,7 +204,7 @@ export default function LoginPage({ onLogin, onNavigate }) {
               />
             </div>
           </div>
-          
+
           <div>
             <label className="block text-sm font-medium text-warmbrown-800 mb-1">Password *</label>
             <div className="relative">

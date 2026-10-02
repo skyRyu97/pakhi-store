@@ -11,7 +11,7 @@ export const PANKHI_PRODUCTS = [
     description: "Hand-embroidered with traditional silk floss (pat) threads in geometric geometric floral motifs. Crafted with love by Nani over 14 painstaking hours, finished with woolen fringe tassels and a hand-turned Sheesham wood handle.",
     details: [
       "Authentic Punjabi Bagh-style floral geometry",
-      "Soft pure khaddar cotton base with silken embroidery",
+      "Cotton base with cotton thread embroidery",
       "Sheesham wood turned handle with brass ring finish",
       "Border adorned with hand-knotted golden mustard ghungroo fringe",
       "Diameter: approx. 11.5 inches"
@@ -35,7 +35,7 @@ export const PANKHI_PRODUCTS = [
     tag: "Nani's Favorite",
     description: "Inspired by golden mustard fields (Sarson) in harvest time. Embroidered in earthy ochre, amber, and raw terracotta. Stitched tightly on coarse organic handloom cotton to ensure a sturdy, cooling breeze on balmy afternoons.",
     details: [
-      "Natural organic handspun cotton base",
+      "Natural cotton base with cotton thread stitching",
       "Double-stitched corners for heirloom durability",
       "Rosewood handle polished naturally with linseed oil",
       "Handmade colorful pom-pom fringe",
@@ -86,7 +86,7 @@ export const PANKHI_PRODUCTS = [
       "Classic criss-cross cross-stitch technique",
       "Lightweight bamboo-reinforced rim",
       "Smooth lightweight pine handle comfortable for long holding",
-      "Soft cotton frayed tassel borders",
+      "Soft cotton fringe borders, stitched with cotton threads",
       "Diameter: approx. 10.5 inches"
     ],
     image: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80",
@@ -128,7 +128,7 @@ export const PANKHI_PRODUCTS = [
       "100% biodegradable unbleached village khadi",
       "Traditional Jaal geometric hand embroidery",
       "Antique brass fitting connecting handle to frame",
-      "Natural jute and cotton twine fringe",
+      "Cotton and cotton thread fringe",
       "Diameter: approx. 12.5 inches"
     ],
     image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
